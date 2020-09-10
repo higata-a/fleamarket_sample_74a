@@ -1,5 +1,5 @@
 $(function() {
-  Payjp.setPublicKey('pk_test_○○◯◯◯◯◯◯◯◯◯◯◯◯◯◯');
+  Payjp.setPublicKey('pk_test_595999dca3469563e4e80032');
   $("#charge_form").on('click', function(e){
     e.preventDefault(); //「追加する」のクリックイベントが行われた時に動作を一度停止
     var year = $("#exp_year").val()
