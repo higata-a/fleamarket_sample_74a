@@ -1,0 +1,35 @@
+%section.credit-card-content
+  %h2.credit-card-content--head
+    %p クレジットカード情報入力
+    .credit-card-content--form
+      =form_with model: @card, id: "all-form", url: credit_cards_path,local: true do |f| 
+        .form-group
+          .form-group--card-number
+            %label.card-number
+              カード番号
+            %span.required
+              必須
+            .card-number__form
+              = f.text_field :card_number, placeholder: "半角数字のみ",maxlength: "16", id: "number"
+            .card-icon
+              %ul
+                %li
+                  = image_tag "/logo_visa_ph001.png", size: "40x30", class: 'credit_logo'
+                  = image_tag "/mc_vrt_pos.svg", size: "40x30", class: 'credit_logo'
+                  = image_tag "/jcb-logomark-img-01.gif", size: "40x30", class: 'credit_logo'
+                  = image_tag "/amex-logomark-img-04.gif", size: "40x30", class: 'credit_logo'
+                  = image_tag "/diners-logomark-img-01.gif", size: "40x30", class: 'credit_logo'
+          .form-group--expiration-date
+            %label.expiration-date
+              有効期限
+            .expiration-date__form
+              = f.select :exp_month, [["01", 1],["02", 2],["03", 3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]], id: "exp_month"
+              .expiration-text 月
+              = f.select :exp_year, [["2020", 2020],["2021", 2021],["2022", 2022],["2023",2023],["2024",2024],["2025",2025],["2026",2026],["2027",2027],["2028",2028],["2029",2029],["2030",2030]], id: "exp_year"
+              .expiration-text 年
+          .form-group--security-code
+            %label.security-code
+              セキュリティーコード
+            .security-code--form
+              = f.text_field :security_code, placeholder: "カード背面４桁もしくは３桁の番号", maxlength: "4", id: "cvc" 
+          =f.submit "追加する", class: "submit-btn", id: "charge_form"

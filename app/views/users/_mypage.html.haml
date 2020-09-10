@@ -52,8 +52,11 @@
           %li.setting-list__ul__li
             お届け先住所
             = icon('fas', 'angle-right')
+          -# %li.setting-list__ul__li
+            -# 支払い方法
+            -# = icon('fas', 'angle-right')
           %li.setting-list__ul__li
-            支払い方法
+            = link_to "支払い方法", credit_cards_path, method: :new
             = icon('fas', 'angle-right')
           %li.setting-list__ul__li
             メール/パスワード
